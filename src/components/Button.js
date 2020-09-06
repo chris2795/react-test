@@ -3,6 +3,7 @@ import "../css/Button.css";
 
 import { Link } from "react-router-dom";
 
+//Button className="" the user will choose the design
 const STYLES = ['btn--primary', 'btn--outline'];
 
 const SIZES = ['btn--medium', 'btn--large']

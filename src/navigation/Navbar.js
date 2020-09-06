@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../components/Button";
-import '../css/Navbar.css'
-
-
+import "../css/Navbar.css";
+import Dropdown from "../components/Dropdown";
 
 function Navbar() {
   //click handler for changing the icon on navbar
@@ -22,14 +21,39 @@ function Navbar() {
     }
   };
 
-  useEffect (() => {
+  useEffect(() => {
     showButton();
-  }, [])
+  }, []);
   window.addEventListener("resize", showButton);
+
+  //navbar dropdown menu
+  const [dropdown, setDropdown] = useState(false);
+  const onMouseEnter = () => {
+
+      setDropdown(true);
+    
+  };
+
+  const onMouseLeave = () => {
+
+      setDropdown(false);
+    
+  };
+  //navbar
+  const [navbar, setNavbar] = useState(false);
+  const changeBackground = () => {
+    if (window.scrollY >= 80) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+
+  window.addEventListener("scroll", changeBackground);
 
   return (
     <>
-      <nav className="navbar">
+      <nav className={navbar ? "navbar active" : "navbar"}>
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             OFW <i className="fas fa-globe-asia" />
@@ -43,14 +67,19 @@ function Navbar() {
                 Home
               </Link>
             </li>
-            <li className="nav-item">
+            <li
+              className="nav-item"
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+            >
               <Link
                 to="/services"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Services
+                Services <i className="fas fa-caret-down" />
               </Link>
+              {dropdown && <Dropdown />}
             </li>
             <li className="nav-item">
               <Link
@@ -64,10 +93,10 @@ function Navbar() {
             <li className="nav-item">
               <Link
                 to="/sign-in"
-                className='nav-links-mobile'
+                className="nav-links-mobile"
                 onClick={closeMobileMenu}
               >
-                Sign In
+                Sign-In
               </Link>
             </li>
           </ul>

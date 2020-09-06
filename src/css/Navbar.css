@@ -1,5 +1,7 @@
+/*whole navbar*/
 .navbar {
-    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+    background: transparent;
+    /* background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%); */
     height: 80px;
     display: flex;
     justify-content: center;
@@ -9,7 +11,10 @@
     top: 0;
     z-index: 999;
   }
-  
+  .navbar.active {
+    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+  }
+  /*container*/
   .navbar-container {
     display: flex;
     justify-content: center;
@@ -17,7 +22,7 @@
     height: 80px;
     max-width: 1500px;
   }
-  
+  /*logo*/
   .navbar-logo {
     color: #fff;
     justify-self: start;
@@ -28,12 +33,12 @@
     display: flex;
     align-items: center;
   }
-  
+  /*icon of the logo*/
   .fa-globe-asia {
     margin-left: 0.5rem;
     font-size: 1.8rem;
   }
-  
+  /*menu tab*/
   .nav-menu {
     display: grid;
     grid-template-columns: repeat(4, auto);
@@ -44,11 +49,11 @@
     justify-content: end;
     margin-right: 2rem;
   }
-  
+  /*link*/
   .nav-item {
     height: 80px;
   }
-  
+  /*text-link*/
   .nav-links {
     color: #fff;
     display: flex;
@@ -57,20 +62,20 @@
     padding: 0.5rem 1rem;
     height: 100%;
   }
-  
+  /*animation of text*/
   .nav-links:hover {
     border-bottom: 4px solid #fff;
     transition: all 0.2s ease-out;
   }
-  
+  /*menu icon*/
   .fa-bars {
     color: #fff;
   }
-  
+  /*to disable the nav sign in*/
   .nav-links-mobile {
     display: none;
   }
-  
+    /* disable menu icon*/
   .menu-icon {
     display: none;
   }
@@ -79,7 +84,7 @@
     .NavbarItems {
       position: relative;
     }
-  
+    /*nav menu*/
     .nav-menu {
       display: flex;
       flex-direction: column;
@@ -91,7 +96,7 @@
       opacity: 1;
       transition: all 0.5s ease;
     }
-  
+  /*dropdown menu*/
     .nav-menu.active {
       background: #242222;
       left: 0;
